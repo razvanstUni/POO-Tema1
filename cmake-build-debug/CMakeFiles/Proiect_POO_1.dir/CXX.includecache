@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/razvan/Documents/workspace/Proiect-POO-1/List.cpp
+List.h
+/Users/razvan/Documents/workspace/Proiect-POO-1/List.h
+
+/Users/razvan/Documents/workspace/Proiect-POO-1/List.h
+
+/Users/razvan/Documents/workspace/Proiect-POO-1/PQueue.cpp
+PQueue.h
+/Users/razvan/Documents/workspace/Proiect-POO-1/PQueue.h
+
+/Users/razvan/Documents/workspace/Proiect-POO-1/PQueue.h
+List.cpp
+/Users/razvan/Documents/workspace/Proiect-POO-1/List.cpp
+iostream
+-
+
+/Users/razvan/Documents/workspace/Proiect-POO-1/main.cpp
+iostream
+-
+PQueue.cpp
+/Users/razvan/Documents/workspace/Proiect-POO-1/PQueue.cpp
+
