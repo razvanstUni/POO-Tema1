@@ -14,12 +14,33 @@ PQueue::PQueue() {
     this->elements = 0;
 }
 
+//Class constructor with params
+PQueue::PQueue(int count, int value, int priority) {
+    this->elements=0;
+    int i;
+    for(i=1;i<=count;i++) {
+        this->insert(value, priority);
+    }
+}
+
+//Copy constructor
+PQueue::PQueue(PQueue& list) {
+    this->elements = list.elements;
+    List *q = list.list;
+    while(q) {
+        this->insert(q->value, q->priority);
+        q = q->next;
+    }
+}
+
 //Class destructor, where the memory gets freed
 PQueue::~PQueue() {
     List *list1 = this->list;
     List *list2 = this->list;
-    while(list1) {
+    while(list2) {
+        //cout << "des";
         list1 = list1->next;
+        //cout << list2;
         delete list2;
         list2 = list1;
     }
@@ -86,6 +107,27 @@ ostream& operator<<(ostream& os, const PQueue& list)
     return os;
 }
 
+//Overrider of the ">>" operator
+istream& operator>>(istream& is, PQueue& list)
+{
+    List *list1 = list.list;
+    List *list2 = list.list;
+    while(list2) {
+        list1 = list1->next;
+        delete list2;
+        list2 = list1;
+    }
+    list.elements = 0;
+
+    int count,i,value,priority;
+    is >> count;
+    for(i=1;i<=count;i++) {
+        is >> value >> priority;
+        list.insert(value, priority);
+    }
+    return is;
+}
+
 //Rmeove elements with negative priority from the list
 void PQueue::freeList() {
     List *q = list;
@@ -104,13 +146,12 @@ int PQueue::count() {
 
 //Check if the list is empty
 int PQueue::empty() {
-    if(elements) return 0;
-    else return 1;
+    if(elements == 0) return 1;
+    return 0;
 }
 
 //Insert an element into the list
 void PQueue::insert(int x, int priority) {
-
     if(this->empty()) { //If the list is empty
         this->list = new List(x, priority);
         last = list;
@@ -118,10 +159,10 @@ void PQueue::insert(int x, int priority) {
         List *newList;
         List *q = list;
         newList = new List(x, priority);
-        if(priority < list->priority) { //If the element is added at the beginning
+        if(priority <= this->list->priority) { //If the element is added at the beginning
             newList->next = list;
             list = newList;
-        } else if( priority > last->priority ) { //If the element is added at the end
+        } else if( priority >= last->priority ) { //If the element is added at the end
             last->next = newList;
             last = newList;
         } else { //If the element is added in the middle

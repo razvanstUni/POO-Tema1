@@ -23,6 +23,8 @@ class PQueue {
 
     public:
         PQueue();
+        PQueue(int, int, int);
+        PQueue(PQueue&);
         ~PQueue();
         int empty();
         void insert(int, int);
@@ -35,6 +37,7 @@ class PQueue {
         PQueue& operator--(int);
         PQueue& operator=(const PQueue&);
         friend ostream& operator<<(ostream&, const PQueue&);
+        friend istream& operator>>(istream&, PQueue&);
 };
 
 
