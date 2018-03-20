@@ -1,4 +1,0 @@
-/Applications/School/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/razvan/Documents/workspace/Proiect-POO-1
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/razvan/Documents/workspace/Proiect-POO-1/cmake-build-debug
